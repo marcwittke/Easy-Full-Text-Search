@@ -12,8 +12,6 @@
 //
 
 using System;
-using System.Linq;
-using System.Text;
 
 namespace EasyFTS
 {
@@ -38,28 +36,12 @@ namespace EasyFTS
         public int Position { get; private set; }
 
         /// <summary>
-        /// Returns the number of characters not yet parsed.
-        /// </summary>
-        /// <remarks>
-        /// Returns the length of the current text being parsed minus the current position.
-        /// </remarks>
-        public int Remaining => Text.Length - Position;
-
-        /// <summary>
         /// Constructs a TextParse instance.
         /// </summary>
         /// <param name="text">Text to be parsed.</param>
         public TextParser(string text = null)
         {
             Reset(text);
-        }
-
-        /// <summary>
-        /// Resets the current position to the start of the current text.
-        /// </summary>
-        public void Reset()
-        {
-            Position = 0;
         }
 
         /// <summary>
@@ -98,13 +80,6 @@ namespace EasyFTS
         }
 
         /// <summary>
-        /// Extracts a substring from the specified position to the end of the text.
-        /// </summary>
-        /// <param name="start">0-based position of first character to extract.</param>
-        /// <returns>Returns the extracted string.</returns>
-        public string Extract(int start) => Extract(start, Text.Length);
-
-        /// <summary>
         /// Extracts a substring from the specified range of the current text.
         /// </summary>
         /// <param name="start">0-based position of first character to extract.</param>
@@ -128,90 +103,12 @@ namespace EasyFTS
         }
 
         /// <summary>
-        /// Moves to the next occurrence of the specified string
-        /// </summary>
-        /// <param name="s">String to find</param>
-        /// <param name="ignoreCase">Indicates if case-insensitive comparisons are used</param>
-        public void MoveTo(string s, bool ignoreCase = false)
-        {
-            Position = Text.IndexOf(s, Position, ignoreCase ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
-            if (Position < 0)
-                Position = Text.Length;
-        }
-
-        /// <summary>
-        /// Moves to the next occurrence of any one of the specified
-        /// characters.
-        /// </summary>
-        /// <param name="chars">Array of characters to find</param>
-        public void MoveTo(params char[] chars)
-        {
-            Position = Text.IndexOfAny(chars, Position);
-            if (Position < 0)
-                Position = Text.Length;
-        }
-
-        /// <summary>
-        /// Moves to the next occurrence of any character that is not one
-        /// of the specified characters.
-        /// </summary>
-        /// <param name="chars">Array of characters to move past</param>
-        public void MovePast(params char[] chars)
-        {
-            while (!EndOfText && chars.Contains(Peek()))
-                MoveAhead();
-        }
-
-        /// <summary>
-        /// Moves the current position to the first character that is part of a newline.
-        /// </summary>
-        public void MoveToEndOfLine() => MoveTo('\r', '\n' );
-
-        /// <summary>
         /// Moves the current position to the next character that is not whitespace.
         /// </summary>
         public void MovePastWhitespace()
         {
             while (char.IsWhiteSpace(Peek()))
                 MoveAhead();
-        }
-
-        /// <summary>
-        /// Moves to the end of quoted text and returns the text within the quotes. Discards the
-        /// quote characters. The current character is assumed to be the quote character. Two
-        /// consecutive quotes are treated as a single literal character.
-        /// </summary>
-        /// <param name="escapeCharacter"></param>
-        public string ParseQuotedText(char escapeCharacter = NullChar)
-        {
-            // Get quote character
-            char quote = Peek();
-
-            if (escapeCharacter == NullChar)
-                escapeCharacter = quote;
-
-            // Jump to start of quoted text
-            MoveAhead();
-            // Parse quoted text
-            StringBuilder builder = new StringBuilder();
-            while (!EndOfText)
-            {
-                int start = Position;
-                // Move to next quote
-                MoveTo(quote);
-                // Capture quoted text
-                builder.Append(Extract(start, Position));
-                // Skip over quote
-                MoveAhead();
-                // Two consecutive quotes treated as quote literal
-                if (Peek() == quote)
-                {
-                    builder.Append(quote);
-                    MoveAhead();
-                }
-                else break; // Done if single closing quote
-            }
-            return builder.ToString();
         }
     }
 }
