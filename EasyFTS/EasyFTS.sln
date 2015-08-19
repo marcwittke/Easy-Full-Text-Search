@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyFTS", "EasyFTS\EasyFTS.csproj", "{34ABA937-7303-45E0-B7BC-7A0EC8649020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEasyFTS", "TestEasyFTS\TestEasyFTS.csproj", "{D6CAE4C9-13E4-4AB0-B0C4-535F89417538}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34ABA937-7303-45E0-B7BC-7A0EC8649020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34ABA937-7303-45E0-B7BC-7A0EC8649020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34ABA937-7303-45E0-B7BC-7A0EC8649020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34ABA937-7303-45E0-B7BC-7A0EC8649020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6CAE4C9-13E4-4AB0-B0C4-535F89417538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6CAE4C9-13E4-4AB0-B0C4-535F89417538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6CAE4C9-13E4-4AB0-B0C4-535F89417538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6CAE4C9-13E4-4AB0-B0C4-535F89417538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
