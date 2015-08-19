@@ -32,3 +32,9 @@ Another goal of Easy Full Text Search is to always produce a valid SQL query. Wh
 | NOT term1 AND NOT term2 | Expression discarded if node is grouped (parenthesized) or is the root node; otherwise, the parent node may contain another subexpression that will make this one valid.
 | term1 OR NOT term2 | Expression discarded.
 | term1 NEAR NOT term2 | NEAR conjunction changed to AND.
+
+#Example
+```c#
+EasyFullTextSearch fts = new EasyFullTextSearch();
+string query = fts.ToFtsQuery(searchTerm);
+```
