@@ -33,8 +33,18 @@ Another goal of Easy Full Text Search is to always produce a valid SQL query. Wh
 | term1 OR NOT term2 | Expression discarded.
 | term1 NEAR NOT term2 | NEAR conjunction changed to AND.
 
-#Example
+# Example
 ```c#
 EasyFullTextSearch fts = new EasyFullTextSearch();
 string query = fts.ToFtsQuery(searchTerm);
 ```
+
+# Stop Words (Noise Words)
+One thing to be aware of is SQL Server's handling of stop words. Stop words are words such as *a*, *and*, and *the*. These words are not included in the full-text index. SQL Server does not index these words because they are very common and don't really add to the quality of the search. Since these words are not indexed, SQL Server will never find a match for these words. The result is that a search for a stop word will return no results, even though that stop word may appear in your articles.
+
+The best way to handle this seems to be to exclude these words from the SQL query. Easy Full Text Search allows you to do this by adding stop words to the `StopWords` collection property. Stop words will not be included in the resulting query unless they are quoted, thereby preventing stop words in the query from blocking all results.
+
+Alternatively, SQL Server provides an option for preventing the issue described above. The transform noise words option can be used to enable SQL Server to return matches even when the query contains a stop word (noise word). Set this option to 1 to enable noise word transformation.
+
+# More Information
+For more information and a discussion of the code, please see my article [Easy Full-Text Search Queries](http://www.blackbeltcoder.com/Articles/data/easy-full-text-search-queries).
