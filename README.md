@@ -1,7 +1,7 @@
 # Easy Full Text Search
-Easy Full Text Search is a .NET class library to convert a user-friendly, Google-like search term into a valid Microsoft SQL Server full-text-search query. Attempts to gracefully handle all syntax errors.
+Easy Full Text Search is a .NET class library to convert a user-friendly, Google-like search term into a valid Microsoft SQL Server full-text-search query. The code attempts to gracefully handle all syntax errors.
 
-# More Information
+# Details
 Microsoft SQL Server provides a powerful full-text search feature. However, the syntax is rather cryptic, especially for non-programmers. Moreover, there are many conditions that can cause SQL Server to throw up an error if things aren't exactly right.
 
 Easy Full Text Search converts a user-friendly, Google-like search term to the corresponding full-text search SQL query. Its goal is to never throw exceptions on badly formed input. It attempts to simply construct a valid query as best it can, regardless of the input.
