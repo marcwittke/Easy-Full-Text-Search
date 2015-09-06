@@ -38,44 +38,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(8, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Search term:";
             // 
             // txtSearchTerm
             // 
-            this.txtSearchTerm.Location = new System.Drawing.Point(16, 32);
+            this.txtSearchTerm.Location = new System.Drawing.Point(11, 21);
+            this.txtSearchTerm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearchTerm.Name = "txtSearchTerm";
-            this.txtSearchTerm.Size = new System.Drawing.Size(715, 26);
+            this.txtSearchTerm.Size = new System.Drawing.Size(458, 20);
             this.txtSearchTerm.TabIndex = 1;
             this.txtSearchTerm.Text = "abc def";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 77);
+            this.label2.Location = new System.Drawing.Point(8, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 20);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "SQL &query:";
             // 
             // txtSqlQuery
             // 
-            this.txtSqlQuery.Location = new System.Drawing.Point(12, 100);
+            this.txtSqlQuery.Location = new System.Drawing.Point(8, 65);
+            this.txtSqlQuery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSqlQuery.Multiline = true;
             this.txtSqlQuery.Name = "txtSqlQuery";
             this.txtSqlQuery.ReadOnly = true;
             this.txtSqlQuery.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSqlQuery.Size = new System.Drawing.Size(800, 203);
+            this.txtSqlQuery.Size = new System.Drawing.Size(535, 133);
             this.txtSqlQuery.TabIndex = 3;
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(737, 32);
+            this.btnConvert.Location = new System.Drawing.Point(473, 21);
+            this.btnConvert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(75, 26);
+            this.btnConvert.Size = new System.Drawing.Size(70, 20);
             this.btnConvert.TabIndex = 4;
             this.btnConvert.Text = "&Convert";
             this.btnConvert.UseVisualStyleBackColor = true;
@@ -84,15 +89,16 @@
             // Form1
             // 
             this.AcceptButton = this.btnConvert;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 325);
+            this.ClientSize = new System.Drawing.Size(553, 211);
             this.Controls.Add(this.btnConvert);
             this.Controls.Add(this.txtSqlQuery);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearchTerm);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Test Easy Full Text Search";
